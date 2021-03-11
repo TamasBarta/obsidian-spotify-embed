@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-spotify-embed",
+	"name": "Spotify Embed",
+	"version": "1.0.0",
+	"minAppVersion": "0.9.12",
+	"description": "Obisidian plugin to allow you to embed Spotify playlists or songs in your Obsidian markdown documents.",
+	"author": "Tamás Barta",
+	"authorUrl": "https://bartatamas.hu/",
+	"isDesktopOnly": false
+}
