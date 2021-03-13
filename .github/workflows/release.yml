@@ -3,14 +3,12 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-    - '*' # Push events to matching any tag format, i.e. 1.0, 20.15.10
+    - '[0-9]+.[0-9]+.[0-9]+' # Push events to matching any tag format, i.e. 1.0, 20.15.10
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
@@ -19,7 +17,7 @@ jobs:
     - name: Get Version
       id: version
       run: |
-        echo "::set-output name=tag::$(git describe --abbrev=0)"
+        echo "::set-output name=tag::${GITHUB_REF#refs/tags/}"
     # Build the plugin
     - name: Build
       id: build
